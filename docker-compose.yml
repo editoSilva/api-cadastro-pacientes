@@ -1,0 +1,79 @@
+version: "3.7"
+
+services:
+    #image project
+    app:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        restart: always
+        working_dir: /var/www/html
+        volumes:
+            - ./:/var/www/html
+        depends_on:
+            - redis
+        networks:
+            - app-api-cadastro
+
+    #nginx
+    nginx:
+        image: nginx:alpine
+        restart: always
+        ports:
+            - "8989:80"
+        volumes:
+            - ./:/var/www/html
+            - ./docker/nginx/:/etc/nginx/conf.d/
+        networks:
+            - app-api-cadastro
+
+    postgres:
+        image: postgres:12-alpine
+        container_name: postgres
+        volumes:
+            - ./data/postgre:/var/lib/postgresql/data
+        restart: always
+        ports:
+            - "5432:5432"
+        environment:
+            - POSTGRES_PASSWORD=secret
+            - POSTGRES_DB=database
+        networks:
+            - app-api-cadastro
+
+    pgadmin:
+        image: dpage/pgadmin4
+        environment:
+            PGADMIN_DEFAULT_EMAIL: pgadmin4@pgadmin.org
+            PGADMIN_DEFAULT_PASSWORD: admin
+        ports:
+            - '16543:80'
+        depends_on:
+            - postgres
+        networks:
+            - app-api-cadastro
+
+    # queue
+    queue:
+        image: especializati/laravel9-app
+        restart: always
+        command: "php artisan queue:work"
+        volumes:
+            - ./:/var/www/html
+        depends_on:
+            - redis
+            - app
+        networks:
+            - app-api-cadastro
+
+    #redis
+    redis:
+        image: redis
+        ports:
+            - '6379:6379'
+        networks:
+            - app-api-cadastro
+
+networks:
+    app-api-cadastro:
+        external: true
