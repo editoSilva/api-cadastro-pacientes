@@ -3,8 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use App\Models\Patient;
 use Illuminate\Database\Seeder;
+use Database\Seeders\PatientSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,7 +16,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
 
-        Patient::factory(200)->create();
+        $this->call([PatientSeeder::class]);
+
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([

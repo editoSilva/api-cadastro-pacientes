@@ -22,12 +22,12 @@ return new class extends Migration
                     ->onDelete('cascade');
             $table->string('cep');
             $table->string('street');
+            $table->string('number');
             $table->string('neighborhood');
             $table->string('city');
             $table->string('state');
             $table->string('complement')->nullable();
             $table->timestamps();
-            $table->softDeletes();
             
         });
 

@@ -19,6 +19,7 @@ class PatientFactory extends Factory
         $faker = \Faker\Factory::create('pt_BR');
         
         return [
+            'image' => $this->faker->imageUrl(400, 400),
             'name'          => $faker->name(),  
             'mother_name'   => $faker->name(),
             'birth_date'    => $faker->date('d-m-Y'),
