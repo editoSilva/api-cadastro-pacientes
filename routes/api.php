@@ -14,6 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::prefix('patients')->group(base_path('routes/api/v1/patients.php'));
+Route::prefix('zip_cod_query')->group(base_path('routes/api/v1/zip_cod_query.php'));
+
+
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
