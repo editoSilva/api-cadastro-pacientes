@@ -24,10 +24,7 @@ return new class extends Migration
             $table->softDeletes();
         });
 
-        Schema::table('patients', function (Blueprint $table) {
-            $table->dropSoftDeletes();
-        });
-        
+     
     }
 
     /**
