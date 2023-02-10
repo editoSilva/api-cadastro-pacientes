@@ -1,7 +1,4 @@
 
-sudo docker network create app-api-cadastro  
-
-
 ### Obejetivo
 
 Vamos la!
