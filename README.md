@@ -19,9 +19,12 @@ A Aplicação
 
 2:
 - Cadastro - Atualização - Remoção e Busca de usuários na base de dados
-- Cadastro de usuários através de planilhas CSV enviando a api e ela tratando e inserindo em nossa base de dados.
+- Cadastro de usuários através de planilhas CSV enviando a api e ela tratando 
+e inserindo em nossa base de dados.
 
-- Existe na raiz do nosso projeto, dois arquivos o endpoint.json(Onde está o nosso arquivo do insomina para teste da nossa api), e o import.csv(Arquivo com uma simulação de usuários).
+- Existe na raiz do nosso projeto, dois arquivos o endpoint.json(Onde está o 
+nosso arquivo do insomina para teste da nossa api), e o 
+import.csv(Arquivo com uma simulação de usuários).
 
 ```
 ROTAS da nossa aplicação
@@ -29,6 +32,6 @@ ROTAS da nossa aplicação
 ```sh
 
     /api/v1/zip_cod_query/seu-cep-aqui (Rota para consulta do CEP)
-    
+
 
 ```
