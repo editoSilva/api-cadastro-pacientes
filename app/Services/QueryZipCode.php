@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Cache;
 
 class QueryZipCode {
     
@@ -10,6 +11,13 @@ class QueryZipCode {
         public function queryZipCode($zipCode) {
 
             $url = "https://viacep.com.br/ws/".$zipCode."/json";
+
+            
+            //Armazena a consulta para o futuro
+            if(Cache::get($zipCode)) {
+
+                return Cache::get($zipCode);
+            }
 
             $response = Http::get($url);  
 
@@ -24,17 +32,17 @@ class QueryZipCode {
                     'state'         => $response->object()->uf,
                     'city'          => $response->object()->localidade,
                 ];
+
+                Cache::put($zipCode, $objectAdress);
                 
 
             return $objectAdress;
                 
             }
 
-           
+
             return [];
-            
-            
-           
+
         }   
     
 }

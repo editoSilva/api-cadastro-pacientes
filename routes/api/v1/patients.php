@@ -7,4 +7,4 @@ use App\Http\Controllers\Api\v1\PatientController;
 Route::resource('', PatientController::class)->parameter('', 'patient');
 
 
-Route::post('upload_list_patients', [PatientController::class, 'upload']);
+Route::post('import_list_patients', [PatientController::class, 'upload']);

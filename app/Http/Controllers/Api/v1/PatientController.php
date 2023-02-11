@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\v1;
 
 use App\Models\Patient;
 
+use App\Services\ImportCsv;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\StorePatient;
@@ -16,10 +17,12 @@ use App\Http\Requests\StorePatientRequest;
 class PatientController extends Controller
 {
     private $patients;
+    private $importCsv;
 
     public function __construct()
     {
         $this->patients = app()->make(Patient::class);
+        $this->importCsv = app()->make(ImportCsv::class);
     }
     /**
      * Display a listing of the resource.
@@ -215,5 +218,13 @@ class PatientController extends Controller
 
             return response()->json(['message' => 'Paciente não encontrado!']);
         }
+    }
+
+
+    public function upload(Request $request)
+    {
+        $this->importCsv->import($request->file);
+
+        return response()->json(['message' => 'Seu arquivo foi enviando!']);
     }
 }
