@@ -36,8 +36,10 @@ class PatientTest extends TestCase
 
     public function test_create_patient()
     {
+        $faker = \Faker\Factory::create('pt_BR');
+        
         $data = [
-            'image'         => 'testew.png',
+            'image'         => $faker->image(null, 360, 360, 'animals', true, true, 'cats', true),
             'name'          => 'Édito Silva',
             'mother_name'   => 'Mãe aqui',
             'birth_date'    => '18/08/1988',
@@ -59,7 +61,6 @@ class PatientTest extends TestCase
             ->assertJson([
                 'message' => 'Paciente cadastrado com sucesso!'
             ]);
-            
     }
 
     public function test_csv_upload()

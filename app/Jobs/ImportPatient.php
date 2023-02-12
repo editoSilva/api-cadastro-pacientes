@@ -5,6 +5,8 @@ namespace App\Jobs;
 
 use App\Models\Patient;
 use Illuminate\Bus\Queueable;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Queue\SerializesModels;
 use Laravel\Horizon\Contracts\Silenced;
@@ -40,53 +42,45 @@ class ImportPatient implements ShouldQueue
 
         foreach($this->data as $data) {
             
-        
-            $patient = Patient::create([
-                'name'          => $data['name'],  
-                'mother_name'   => $data['name'],
-                'birth_date'    => $data['name'],
-                'cpf'           => $data['name'],
-                'cns'           => $data['name']
-            ])->address()->create([
-                'cep'           => $data['cep'],
-                'street'        => $data['street'],
-                'number'        => $data['number'],
-                'neighborhood'  => $data['neighborhood'],
-                'city'          => $data['city'],
-                'state'         => $data['state'],
-                'complement'    => $data['complement']
-            ]);
+            DB::beginTransaction();
+            try {
+                
+                $patient = Patient::create([
+                    'name'          => $data['name'],  
+                    'mother_name'   => $data['name'],
+                    'birth_date'    => $data['name'],
+                    'cpf'           => $data['name'],
+                    'cns'           => $data['name']
+                ])->address()->create([
+                    'cep'           => $data['cep'],
+                    'street'        => $data['street'],
+                    'number'        => $data['number'],
+                    'neighborhood'  => $data['neighborhood'],
+                    'city'          => $data['city'],
+                    'state'         => $data['state'],
+                    'complement'    => $data['complement']
+                ]);
 
-            if($patient) {
-                print "Paceiente ". $patient->name ."criado! ". PHP_EOL;
+                DB::commit();
+                
+                if($patient) {
+                    print "Paceiente ". $patient->name ."criado! ". PHP_EOL;
+                }
+
+            } catch (\Throwable $e) {
+                
+                Log::error($e->getMessage());
+                DB::rollBack();
+                
             }
-            
-        }
 
-        print "-------------------------------------------------". PHP_EOL;
-        print "Deus seja louvado hoje e para sempre! "  .  PHP_EOL;
-        print "-------------------------------------------------". PHP_EOL;
+            print "-------------------------------------------------". PHP_EOL;
+            print "Deus seja louvado hoje e para sempre! "  .  PHP_EOL;
+            print "-------------------------------------------------". PHP_EOL;
+            
         
 
-
-        // foreach($this->patient as $patient) {
-            
-        //     Cache::put('teste-job', $patient);
-            
-        //     $adress =  [
-        //         'cep'           => $patient['cep'],
-        //         'street'        => $patient['street'],
-        //         'number'        => $patient['number'],
-        //         'street'        => $patient['street'],
-        //         'complement'    => $patient['complement'],
-        //         'neighborhood'  => $patient['neighborhood'],
-        //         'city'          => $patient['city'],
-        //         'state'         => $patient['state'],
-        //     ];
-        //         $pt = $this->patients->create($patient)
-        //                         ->address()
-        //                         ->create($adress);
-
-        // }
+         }
+      
     }
 }
