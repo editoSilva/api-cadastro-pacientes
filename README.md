@@ -45,5 +45,6 @@ PACIENTES
 Clone o repositório para sua máquina 
 
 ```sh
-git@github.com:editoSilva/api-cadastro-pacientes.git
+git clone https://github.com/editoSilva/api-cadastro-pacientes.git
+
 ```
