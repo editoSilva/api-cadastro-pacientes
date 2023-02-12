@@ -24,9 +24,9 @@ RUN apt-get update && apt-get install -y \
 # CMD ["/usr/bin/supervisord"]
 
 
-RUN apt-get install -y --no-install-recommends supervisor
-COPY ./docker/supervisord/supervisord.conf /etc/supervisor
-COPY ./docker/supervisord/conf /etc/supervisord.d/
+# RUN apt-get install -y --no-install-recommends supervisor
+# COPY ./docker/supervisord/supervisord.conf /etc/supervisor
+# COPY ./docker/supervisord/conf /etc/supervisord.d/
 ### Supervisor permite monitorar e controlar vários processos (LINUX)
 ### Bastante utilizado para manter processos em Daemon, ou seja, executando em segundo plano
 # CMD ["/usr/bin/supervisord"]
