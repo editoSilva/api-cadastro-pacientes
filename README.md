@@ -12,6 +12,7 @@ Docker-compose
 - Consulta de Cep acessando a api VIAcep.
 - Logo em seguida armazenamos essa pesquisa no bando REDIS para próximas consultas.
 - Cadastro - Atualização - Remoção e Busca de usuários na base de dados.
+- Paginação na listagem de usuários
 - Cadastro de usuários através de planilhas CSV enviando a api e ela tratando e inserindo em nossa base de dados.
 - Existe na raiz do nosso projeto, dois arquivos o endpoint.json(Onde está o 
 nosso arquivo do insomina para teste da nossa api), e o 
