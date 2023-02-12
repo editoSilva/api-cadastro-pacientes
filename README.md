@@ -31,16 +31,16 @@ import.csv(Arquivo com uma simulação de usuários).
 ROTAS da nossa aplicação
 
 
--ZIPCODE
+ZIPCODE
 ==========================================================================
 /api/v1/zip_cod_query/seu-cep-aqui  --> (Rota para consulta do CEP)
 
--PACIENTES
+PACIENTES
 ==========================================================================
 /api/v1/zip_cod_query/seu-cep-aqui  --> (Rota para consulta do CEP)
 /api/v1/zip_cod_query/seu-cep-aqui  --> (Rota para consulta do CEP)
 
-## Passo a passo, para rodar a aplicação
+## Passo a passo:
 
 Clone o repositório para sua máquina 
 
