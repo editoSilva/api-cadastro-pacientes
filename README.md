@@ -58,6 +58,6 @@ Agora vamos subir o banco de dados da nossa aplicação com o seguinte comando:
 php artisan migrate
 ```
 
-Vamos iniciar os testes da aplicação?
+## Vamos iniciar os testes da aplicação?
 
 vou deixar uma imagem de como vc verá os testes na tela e a sua deverá aparecer igual.
