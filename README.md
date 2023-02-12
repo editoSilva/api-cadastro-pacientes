@@ -8,7 +8,7 @@ Desenvolver um cadastro de pacientes, do qual possamos testar toda sua
 capacidade de criação de arquitetura, qualidade do código, validações e
 usabilidade.
 
-## A Aplicação
+ A Aplicação
 
 
 1:
@@ -28,7 +28,7 @@ nosso arquivo do insomina para teste da nossa api), e o
 import.csv(Arquivo com uma simulação de usuários).
 
 
-## ROTAS da nossa aplicação
+ROTAS da nossa aplicação
 
 
 -ZIPCODE
@@ -40,8 +40,7 @@ import.csv(Arquivo com uma simulação de usuários).
 /api/v1/zip_cod_query/seu-cep-aqui  --> (Rota para consulta do CEP)
 /api/v1/zip_cod_query/seu-cep-aqui  --> (Rota para consulta do CEP)
 
-```
-### Passo a passo, para rodar a aplicação
+## Passo a passo, para rodar a aplicação
 
 Clone o repositório para sua máquina 
 
