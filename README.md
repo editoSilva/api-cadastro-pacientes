@@ -60,6 +60,10 @@ php artisan migrate
 
 ## Vamos iniciar os testes da aplicação?
 
-Segue a imagem de como será o seu teste na tela.
+Rode o seguinte comando para o seu teste:
 
+
+```sh
+php artisan test
+```
 
