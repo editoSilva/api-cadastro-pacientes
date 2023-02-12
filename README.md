@@ -30,8 +30,13 @@ import.csv(Arquivo com uma simulação de usuários).
 ROTAS da nossa aplicação
 
 ```sh
+-ZIPCODE
+==========================================================================
+/api/v1/zip_cod_query/seu-cep-aqui  --> (Rota para consulta do CEP)
 
-    /api/v1/zip_cod_query/seu-cep-aqui (Rota para consulta do CEP)
-
+-PACIENTES
+==========================================================================
+/api/v1/zip_cod_query/seu-cep-aqui  --> (Rota para consulta do CEP)
+/api/v1/zip_cod_query/seu-cep-aqui  --> (Rota para consulta do CEP)
 
 ```

@@ -53,19 +53,6 @@ services:
         networks:
             - app-api-cadastro
 
-    # queue
-    queue:
-        image: especializati/laravel9-app
-        restart: always
-        command: "php artisan queue:work"
-        volumes:
-            - ./:/var/www/html
-        depends_on:
-            - redis
-            - app
-        networks:
-            - app-api-cadastro
-
     #redis
     redis:
         image: redis

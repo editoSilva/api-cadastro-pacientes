@@ -14,6 +14,22 @@ RUN apt-get update && apt-get install -y \
     zip \
     unzip
 
+
+# syntax=docker/dockerfile:1
+# FROM ubuntu:latest
+# RUN apt-get update && apt-get install -y supervisor
+# RUN mkdir -p /var/wwww/supervisor
+# COPY ./docker/supervisord/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+# # 
+# CMD ["/usr/bin/supervisord"]
+
+
+RUN apt-get install -y --no-install-recommends supervisor
+COPY ./docker/supervisord/supervisord.conf /etc/supervisor
+COPY ./docker/supervisord/conf /etc/supervisord.d/
+### Supervisor permite monitorar e controlar vários processos (LINUX)
+### Bastante utilizado para manter processos em Daemon, ou seja, executando em segundo plano
+# CMD ["/usr/bin/supervisord"]
 RUN docker-php-ext-install pdo pdo_mysql
 
 # Clear cache
@@ -45,4 +61,14 @@ RUN pecl install -o -f redis \
 # Set working directory
 WORKDIR /var/www
 
+# CMD ["/etc/init.d/nginx",  "restart"]
+
+# CMD ["/usr/bin/supervisord"]
+
 USER $user
+
+# CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/supervisord.conf"]
+
+# CMD /usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf
+
+# CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/supervisord.conf"]

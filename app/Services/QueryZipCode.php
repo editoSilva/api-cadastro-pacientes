@@ -26,7 +26,7 @@ class QueryZipCode {
             $objectAdress = [
                     'cep'           => $response->object()->cep,
                     'street'        => $response->object()->logradouro,
-                    "complement"    => $response->object()->logradouro,
+                    "complement"    => '',
                     'neighborhood'  => $response->object()->bairro,
                     'city'          => $response->object()->localidade,
                     'state'         => $response->object()->uf,

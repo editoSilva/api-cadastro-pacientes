@@ -9,7 +9,6 @@ class ImportCsv {
 
         public function import($csv) 
         {
-
             $handle = fopen($csv, "r");
             $row = 0;
             while ($line = fgetcsv($handle, 1000, ",")) {
@@ -36,6 +35,8 @@ class ImportCsv {
                 ];
 
             }
+
+            if(isset($patients)) 
 
             ImportPatient::dispatch($patients);
 
