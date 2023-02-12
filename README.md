@@ -18,17 +18,6 @@ nosso arquivo do insomina para teste da nossa api), e o
 import.csv(Arquivo com uma simulação de usuários).
 
 
-# Rotas da nossa aplicação
-
-
-## CEP
-==========================================================================
-/api/v1/zip_cod_query/seu-cep-aqui  --> (Rota para consulta do CEP)
-
-## PACIENTES
-==========================================================================
-/api/v1/zip_cod_query/seu-cep-aqui  --> (Rota para consulta do CEP)
-/api/v1/zip_cod_query/seu-cep-aqui  --> (Rota para consulta do CEP)
 
 # Passo a passo:
 
@@ -52,6 +41,13 @@ Agora dentro da sua aplicação ao fim desse comando automático digite:
 composer install
 ```
 
+Deixe o .env muito fácil só rodar o seguinte comando abaixo:
+
+```sh
+cp .env.example .env
+```
+
+
 Agora vamos subir o banco de dados da nossa aplicação com o seguinte comando:
 
 ```sh
@@ -66,4 +62,38 @@ Rode o seguinte comando para o seu teste:
 ```sh
 php artisan test
 ```
+
+
+Agora iremos testar as nossas seeder e factory criadas:
+
+```sh
+php artisan migrate:fresh --seed
+```
+
+
+Habilitando as filas:
+
+
+```sh
+php artisan horizon
+```
+
+Após essa url na aplicação a seguinte rota e irá verificar os jobs
+
+```sh
+http://localhost:8989/horizon/
+```
+
+
+
+# Rotas da nossa aplicação
+
+## CEP
+==========================================================================
+/api/v1/zip_cod_query/seu-cep-aqui  --> (Rota para consulta do CEP)
+
+## PACIENTES
+==========================================================================
+/api/v1/zip_cod_query/seu-cep-aqui  --> (Rota para consulta do CEP)
+/api/v1/zip_cod_query/seu-cep-aqui  --> (Rota para consulta do CEP)
 
