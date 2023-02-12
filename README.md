@@ -39,4 +39,12 @@ ROTAS da nossa aplicação
 /api/v1/zip_cod_query/seu-cep-aqui  --> (Rota para consulta do CEP)
 /api/v1/zip_cod_query/seu-cep-aqui  --> (Rota para consulta do CEP)
 
-```# api-cadastro-pacientes
+```
+### Passo a passo, para rodar a aplicação
+
+Clone o repositório para sua máquina 
+
+```sh
+git@github.com:editoSilva/api-cadastro-pacientes.git
+```
+# api-cadastro-pacientes
