@@ -84,16 +84,9 @@ Após essa url na aplicação a seguinte rota e irá verificar os jobs
 http://localhost:8989/horizon/
 ```
 
-
-
 # Rotas da nossa aplicação
 
-## CEP
-==========================================================================
-/api/v1/zip_cod_query/seu-cep-aqui  --> (Rota para consulta do CEP)
+No arquivo endpoints.json, estão contidas todas as rotas para testes da aplicação.
 
-## PACIENTES
-==========================================================================
-/api/v1/zip_cod_query/seu-cep-aqui  --> (Rota para consulta do CEP)
-/api/v1/zip_cod_query/seu-cep-aqui  --> (Rota para consulta do CEP)
 
+#Valeu!!!
