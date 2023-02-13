@@ -32,7 +32,7 @@ class PatientController extends Controller
     public function index(Request $request)
     {
 
-        $patients = Patient::search($request)->with('address')->paginate(20);
+        $patients = $this->patients->search($request)->with('address')->paginate(20);
 
         if(count($patients) > 0) {
             return response()->json($patients);
